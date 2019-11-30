@@ -1,0 +1,173 @@
+
+<!DOCTYPE HTML>
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png.html">
+	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png.html">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png.html">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png.html">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png.html">
+	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png.html">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png.html">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png.html">
+	<link rel="apple-touch-icon" sizes="180x180" href="logo1.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="logo1.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="logo1.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="logo1.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="logo1.png">
+	<link rel="manifest" href="manifest.json.html">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+ 	<meta name="theme-color" content="#ffffff">
+
+	<title>Vexareum</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/roadmap.css" />
+	<link rel="stylesheet" href="assets/css/modal.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css.html" /></noscript>
+</head>
+<body class="is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1 id="logo"><a href="index.html">VEXAREUM</a></h1>
+			<nav id="nav">
+				<ul>
+				    <li><a href="index.html#token">Vexareum</a></li>
+				    <li><a href="index.html#features">Features</a></li>
+				    <li><a href="index.html#roadmap">RoadMap</a></li>
+				    <li><a href="index.html#team">Team</a><li>
+				    <li><a href="index.html#getvxr">Tutorial Get VXR</a><li>
+		            
+                    <li><a href="https://etherscan.io/token/0xCfD5c8820d43De0fd9542F8d2D5B6b7fc978f912">Smart Contract</a></li>
+                    <li><a href="https://twitter.com/vexareum" class="icon brands alt fa-twitter"></a></li>
+                    <li><a href="https://t.me/vexareum" class="icon brands alt fa-telegram"></a></li>
+					<li><a href="https://github.com/vexareum" class="icon brands alt fa-github"></a></li>
+				</ul>
+			</nav>
+		</header>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+
+    </div>
+
+    <section id="one" class="wrapper style1 special fade-up">
+      <span class="image fit main"><img src="" alt="" /></span>
+      <div class="content">
+        <div class="container">
+
+
+          <header>
+            <h2>Get 50% of all airdropped VXR and 25% of all Buy VXR!</h2>
+          </header>
+          <div class="row">
+            <div class="col-6"><input type="text" name="address" id="refaddress" value="" placeholder="Enter Your Ethereum Address"></div>
+            <div class="col-3"><a class="button primary" onclick="getreflink()">Get Referral Link</a></div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <span id="refs" style="display:none;">
+            <ul class="actions">
+              <li class="col-6"><a id="refht"></a></li>
+              <li class="col-3"><a class="button small" onclick="copyToClipboard('refht')">Copy</a></li>
+            </ul>
+          </span>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+    </section>
+  </div>
+<div id="token-txs-10"></div>
+
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="https://twitter.com/vexareum" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="https://t.me/vexareum" class="icon brands alt fa-telegram"><span class="label">Telegram</span></a></li>
+    </ul>
+    <br>
+  </footer>
+  <script>
+    function getreflink(){
+      var refaddr = document.getElementById("refaddress").value;
+      var reflink = document.getElementById("refht");
+      reflink.href = '/?ref=' + refaddr;
+      reflink.innerHTML = 'vexareum.com/?ref=' + refaddr;
+      document.getElementById('refs').style.display = 'block';
+    }
+    function copyToClipboard(id) {
+        var text = document.getElementById(id).href; //getting the text from that particular Row
+        //window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+        if (window.clipboardData && window.clipboardData.setData) {
+            // IE specific code path to prevent textarea being shown while dialog is visible.
+            return clipboardData.setData("Text", text);
+
+        } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+            var textarea = document.createElement("textarea");
+            textarea.textContent = text;
+            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+            } catch (ex) {
+                console.warn("Copy to clipboard failed.", ex);
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+      }
+  </script>
+
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("airdropbtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
